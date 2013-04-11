@@ -1,0 +1,52 @@
+xml_node       T_PTROBJ_TAKEREF
+xml_node *       T_PTROBJ_PTR
+
+xml_document      T_PTROBJ_TAKEREF
+xml_document *       T_PTROBJ_PTR
+
+xml_parse_result     T_PTROBJ_TAKEREF
+xml_parse_result *    T_PTROBJ_PTR
+
+xpath_node     T_PTROBJ_TAKEREF
+xpath_node *    T_PTROBJ_PTR
+
+xpath_node_set     T_PTROBJ_TAKEREF
+xpath_node_set *    T_PTROBJ_PTR
+
+const char_t *       T_PV
+xml_attribute       T_XML_ATTRIBUTE
+
+OUTPUT
+T_PTROBJ_PTR
+    sv_setref_pv( $arg, PERL_PKG_${(my $ct = $type) =~ s/\s*\*\s*$//g; \$ct}, (void*)$var );
+
+T_PTROBJ_TAKEREF
+    {
+        $type * tmp = new $type();
+        *tmp = $var;
+        sv_setref_pv( $arg, PERL_PKG_${(my $ct = $type) =~ s/\s*\*\s*$//g; \$ct}, (void*)tmp );
+    }
+
+T_XML_ATTRIBUTE
+        $arg = newSVpv($var.value(), 0);
+
+INPUT
+T_PTROBJ_PTR
+    if ( sv_isobject($arg) && (SvTYPE(SvRV($arg)) == SVt_PVMG) ) {
+        IV tmp = SvIV((SV*)SvRV($arg));
+        $var = INT2PTR($type, tmp);
+    }
+    else {
+        warn( \"${Package}::$func_name() -- $var not a blessed SV reference\" );
+        XSRETURN_UNDEF;
+    }
+
+T_PTROBJ_TAKEREF
+    if ( sv_isobject($arg) && (SvTYPE(SvRV($arg)) == SVt_PVMG) ) {
+        IV tmp = SvIV((SV*)SvRV( $arg ));
+        $var = *(INT2PTR($type *,tmp));
+    }
+    else {
+        warn( \"${Package}::$func_name() -- $var not a blessed SV reference\" );
+        XSRETURN_UNDEF;
+    }

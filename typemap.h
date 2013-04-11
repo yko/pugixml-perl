@@ -1,0 +1,5 @@
+#define PERL_PKG_xml_node "PugiXML::Node"
+#define PERL_PKG_xml_document "PugiXML::Document"
+#define PERL_PKG_xml_parse_result "PugiXML::XMLParseResult"
+#define PERL_PKG_xpath_node "PugiXML::XPathNode"
+#define PERL_PKG_xpath_node_set "PugiXML::XPathNodeSet"
