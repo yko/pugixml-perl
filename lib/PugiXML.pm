@@ -3,7 +3,7 @@ package PugiXML;
 use strict;
 use warnings;
 
-our $VERSION = 1.2;
+our $VERSION = '1.2.1';
 
 require XSLoader;
 
