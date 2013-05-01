@@ -15,6 +15,16 @@ extern "C" {
 
 #include "ppport.h"
 
+struct xml_string_writer : pugi::xml_writer
+{
+    std::string result;
+
+    virtual void write(const void* data, size_t size)
+    {
+        result += std::string(static_cast<const char*>(data), size);
+    }
+};
+
 using namespace pugi;
 
 MODULE = PugiXML    PACKAGE = PugiXML::Node
@@ -44,6 +54,15 @@ xml_node::select_single_node(const char *xpath)
 
 xpath_node_set
 xml_node::select_nodes(const char *xpath)
+
+const char_t*
+xml_node::as_string()
+CODE:
+    xml_string_writer w;
+    THIS->print(w);
+    RETVAL = w.result.data();
+OUTPUT:
+    RETVAL
 
 MODULE = PugiXML    PACKAGE = PugiXML::Document
 PROTOTYPES: DISABLE
