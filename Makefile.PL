@@ -12,6 +12,8 @@ cc_include_paths 'pugixml/src';
 
 use_ppport;
 
+requires_cplusplus;
+
 cc_src_paths 'pugixml/src/pugixml.cpp', 'PugiXML.xs';
 
 WriteMakefile(
