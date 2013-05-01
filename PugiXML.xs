@@ -84,6 +84,11 @@ PROTOTYPES: DISABLE
 const char *
 xml_parse_result::description()
 
+int
+xml_parse_result::offset()
+CODE:
+    RETVAL = THIS->offset;
+
 void
 xml_parse_result::DESTROY()
 
