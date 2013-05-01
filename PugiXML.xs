@@ -1,5 +1,6 @@
 #include "pugixml.hpp"
 #include "typemap.h"
+#include <string>
 
 #ifdef __cplusplus
 extern "C" {
