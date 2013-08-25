@@ -107,17 +107,17 @@ PROTOTYPES: DISABLE
 
 void
 xpath_node_set::as_arrayref(...)
-    CODE:
-        AV *nodes = (AV *)sv_2mortal((SV *)newAV());;
+CODE:
+    AV *nodes = (AV *)sv_2mortal((SV *)newAV());;
 
-        for (pugi::xpath_node_set::const_iterator it = THIS->begin(); it != THIS->end(); ++it)
-        {
-            SV * node_sv = newSV(0);
-            xpath_node * tmp = new xpath_node();
-            *tmp = *it;
-            sv_setref_pv( node_sv, PERL_PKG_xml_node, (void*)tmp );
-            av_push(nodes, node_sv);
-        }
+    for (pugi::xpath_node_set::const_iterator it = THIS->begin(); it != THIS->end(); ++it)
+    {
+        SV * node_sv = newSV(0);
+        xpath_node * tmp = new xpath_node();
+        *tmp = *it;
+        sv_setref_pv( node_sv, PERL_PKG_xml_node, (void*)tmp );
+        av_push(nodes, node_sv);
+    }
 
-        ST(0)= newRV((SV *)nodes);
-        XSRETURN(1);
+    ST(0)= newRV((SV *)nodes);
+    XSRETURN(1);
