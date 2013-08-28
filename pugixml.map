@@ -18,13 +18,18 @@ xml_attribute       T_XML_ATTRIBUTE
 
 OUTPUT
 T_PTROBJ_PTR
-    sv_setref_pv( $arg, PERL_PKG_${(my $ct = $type) =~ s/\s*\*\s*$//g; \$ct}, (void*)$var );
+    {
+        sv_setref_pv( $arg, PERL_PKG_${(my $ct = $type) =~ s/\s*\*\s*$//g; \$ct}, (void*)$var );
+        sv_magic(SvRV($arg), doc, PERL_MAGIC_ext, NULL, 0);
+    }
 
 T_PTROBJ_TAKEREF
     {
-        $type * tmp = new $type();
+        $type * tmp;
+        Newx(tmp, 1, $type);
         *tmp = $var;
         sv_setref_pv( $arg, PERL_PKG_${(my $ct = $type) =~ s/\s*\*\s*$//g; \$ct}, (void*)tmp );
+        sv_magic(SvRV($arg), doc, PERL_MAGIC_ext, NULL, 0);
     }
 
 T_XML_ATTRIBUTE
