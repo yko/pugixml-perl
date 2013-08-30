@@ -1,3 +1,5 @@
+XSOBJ_TYPE *       T_PTROBJ_PTR
+
 xml_node       T_PTROBJ_TAKEREF
 xml_node *       T_PTROBJ_PTR
 
