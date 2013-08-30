@@ -1,6 +1,9 @@
 MODULE = PugiXML    PACKAGE = PugiXML::XPathNodeSet
 PROTOTYPES: DISABLE
 
+size_t
+xpath_node_set::size()
+
 SV *
 xpath_node_set::as_arrayref(SV * right, SV *swap)
 PREINIT:
