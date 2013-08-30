@@ -26,7 +26,7 @@ T_PTROBJ_PTR
 T_PTROBJ_TAKEREF
     {
         $type * tmp;
-        Newx(tmp, 1, $type);
+        tmp = new $type();
         *tmp = $var;
         sv_setref_pv( $arg, PERL_PKG_${(my $ct = $type) =~ s/\s*\*\s*$//g; \$ct}, (void*)tmp );
         sv_magic(SvRV($arg), doc, PERL_MAGIC_ext, NULL, 0);
