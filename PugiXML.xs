@@ -48,3 +48,4 @@ INCLUDE: xs/Document.xs
 INCLUDE: xs/XMLParseResult.xs
 INCLUDE: xs/XPathNode.xs
 INCLUDE: xs/XPathNodeSet.xs
+INCLUDE: xs/XMLText.xs

@@ -3,3 +3,4 @@
 #define PERL_PKG_xml_parse_result "PugiXML::XMLParseResult"
 #define PERL_PKG_xpath_node "PugiXML::XPathNode"
 #define PERL_PKG_xpath_node_set "PugiXML::XPathNodeSet"
+#define PERL_PKG_xml_text "PugiXML::XMLText"

@@ -18,6 +18,9 @@ xpath_node_set *    T_PTROBJ_PTR
 const char_t *       T_PV
 xml_attribute       T_XML_ATTRIBUTE
 
+xml_text            T_PTROBJ_TAKEREF
+xml_text *          T_PTROBJ_PTR
+
 OUTPUT
 T_PTROBJ_PTR
     {
