@@ -12,4 +12,11 @@ OUTPUT:
     RETVAL
 
 void
+xml_parse_result::is_ok()
+OVERLOAD: bool
+PPCODE:
+    ST(0) = *THIS == true ? &PL_sv_undef : newSViv(1);
+    XSRETURN(1);
+
+void
 xml_parse_result::DESTROY()

@@ -25,3 +25,8 @@ xml_document::select_single_node(const char *xpath)
 PREINIT:
     SELF_IS_DOC;
 
+xpath_node_set
+xml_document::select_nodes(const char *xpath)
+PREINIT:
+    SELF_IS_DOC;
+
