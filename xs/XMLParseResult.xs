@@ -12,9 +12,9 @@ OUTPUT:
     RETVAL
 
 void
-xml_parse_result::is_ok()
-OVERLOAD: bool
+xml_parse_result::is_error()
 PPCODE:
+    /* ParseResult == TRUE means document was not loaded */
     ST(0) = *THIS == true ? &PL_sv_undef : newSViv(1);
     XSRETURN(1);
 
