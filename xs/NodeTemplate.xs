@@ -40,3 +40,28 @@ CODE:
     RETVAL = w.result.data();
 OUTPUT:
     RETVAL
+
+xpath_node
+XSOBJ_TYPE::parent()
+PREINIT:
+    DO_PREINIT;
+
+xpath_node
+XSOBJ_TYPE::first_child()
+PREINIT:
+    DO_PREINIT;
+
+xpath_node
+XSOBJ_TYPE::last_child()
+PREINIT:
+    DO_PREINIT;
+
+xpath_node
+XSOBJ_TYPE::next_sibling()
+PREINIT:
+    DO_PREINIT;
+
+xpath_node
+XSOBJ_TYPE::previous_sibling()
+PREINIT:
+    DO_PREINIT;
