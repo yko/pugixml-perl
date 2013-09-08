@@ -15,7 +15,7 @@ void
 xml_parse_result::is_error()
 PPCODE:
     /* ParseResult == TRUE means document was not loaded */
-    ST(0) = *THIS == true ? &PL_sv_undef : newSViv(1);
+    ST(0) = *THIS ? &PL_sv_no : &PL_sv_yes;
     XSRETURN(1);
 
 void
