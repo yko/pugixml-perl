@@ -7,6 +7,6 @@ require PugiXML::XPathNodeSet;
 
 use PugiXML;
 
-use overload '""' => sub { $_[0]->as_string };
+use overload '""' => sub { $_[0]->as_string }, 'bool' => sub { $_[0]->empty };
 
 1;

@@ -65,3 +65,12 @@ xpath_node
 XSOBJ_TYPE::previous_sibling()
 PREINIT:
     DO_PREINIT;
+
+void
+XSOBJ_TYPE::empty()
+PREINIT:
+    DO_PREINIT;
+PPCODE:
+    /* xml_node has operator unspecified_bool_type() which is an alias to empty() */
+    ST(0) = *THIS ? &PL_sv_yes : &PL_sv_no;
+    XSRETURN(1);
