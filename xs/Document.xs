@@ -15,6 +15,11 @@ xml_document::load(const char *contents, ...);
 PREINIT:
     SELF_IS_DOC;
 
+xml_node
+xml_document::document_element();
+PREINIT:
+    SELF_IS_DOC;
+
 #define XSOBJ_TYPE xml_document
 #define DO_PREINIT SELF_IS_DOC
 
