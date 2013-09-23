@@ -20,4 +20,5 @@ WriteMakefile(
     CC       => 'g++',
     LD       => '$(CC)',
     TYPEMAPS => ['pugixml.map'],
+    depend   => {'PugiXML.cpp' => 'xs/*.xs'}
 );
