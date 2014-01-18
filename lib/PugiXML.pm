@@ -10,3 +10,23 @@ require XSLoader;
 XSLoader::load("PugiXML", $VERSION);
 
 1;
+
+__END__
+
+=head1 NAME
+
+PugiXML - Perl binding to pugixml C++ library
+
+=head1 DESCRIPTION
+
+TBD
+
+=head1 SEE ALSO
+
+=over
+
+=item * L<PugiXML::Document>
+
+=item * L<http://pugixml.org/>
+
+=back
